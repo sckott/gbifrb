@@ -60,7 +60,7 @@ rake install
 Nodes
 
 ```ruby
-require 'gbif'
+require 'gbifrb'
 registry = Gbif::Registry
 registry.nodes(limit: 5)
 ```
