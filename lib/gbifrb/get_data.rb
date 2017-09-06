@@ -1,5 +1,5 @@
-require "gbif/request"
-require "gbif/utils"
+require "gbifrb/request"
+require "gbifrb/utils"
 
 module Gbif
     module Registry

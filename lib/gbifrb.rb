@@ -1,8 +1,8 @@
-require "gbif/version"
-require "gbif/request"
-require "gbif/Species"
-require "gbif/Registry"
-require "gbif/Occurrences"
+require "gbifrb/version"
+require "gbifrb/request"
+require "gbifrb/Species"
+require "gbifrb/Registry"
+require "gbifrb/Occurrences"
 
 # @!macro gbif_params
 #   @param offset [Fixnum] Number of record to start at, any non-negative integer up to 10,000

@@ -1,9 +1,9 @@
 require "faraday"
 require "multi_json"
-require "gbif/error"
-require "gbif/constants"
-require 'gbif/utils'
-require 'gbif/helpers/configuration'
+require "gbifrb/error"
+require "gbifrb/constants"
+require 'gbifrb/utils'
+require 'gbifrb/helpers/configuration'
 
 ##
 # Gbif::Request

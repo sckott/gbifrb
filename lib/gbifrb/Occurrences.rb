@@ -1,12 +1,12 @@
 require "faraday"
 require 'faraday_middleware'
 require "multi_json"
-require "gbif/error"
-require "gbif/request"
-require "gbif/constants"
-require 'gbif/helpers/configuration'
-require 'gbif/faraday'
-require 'gbif/utils'
+require "gbifrb/error"
+require "gbifrb/request"
+require "gbifrb/constants"
+require 'gbifrb/helpers/configuration'
+require 'gbifrb/faraday'
+require 'gbifrb/utils'
 
 ##
 # Gbif::Occurrences
@@ -47,7 +47,7 @@ module Gbif
     # @param collectionCode [String] An identifier of any form assigned by the source to identify the physical collection or digital dataset uniquely within the text of an institution.
     # @param institutionCode [String] An identifier of any form assigned by the source to identify the institution the record belongs to. Not guaranteed to be que.
     # @param country [String] The 2-letter country code (as per ISO-3166-1) of the country in which the occurrence was recorded. See here http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-    # @param basisOfRecord [String] Basis of record, as defined in our BasisOfRecord enum here http://gbif.github.io/gbif-api/apidocs/org/gbif/api/vocabulary/BasisOfRecord.html Acceptable values are:
+    # @param basisOfRecord [String] Basis of record, as defined in our BasisOfRecord enum here http://gbif.github.io/gbif-api/apidocs/org/gbifrb/api/vocabulary/BasisOfRecord.html Acceptable values are:
     #    - 'FOSSIL_SPECIMEN' An occurrence record describing a fossilized specimen.
     #    - 'HUMAN_OBSERVATION' An occurrence record describing an observation made by one or more people.
     #    - 'LITERATURE' An occurrence record based on literature alone.

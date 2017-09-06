@@ -1,13 +1,13 @@
 require "faraday"
 require 'faraday_middleware'
 require "multi_json"
-require "gbif/error"
-require "gbif/request"
-require "gbif/constants"
-require 'gbif/helpers/configuration'
-require 'gbif/faraday'
-require 'gbif/utils'
-require 'gbif/get_data'
+require "gbifrb/error"
+require "gbifrb/request"
+require "gbifrb/constants"
+require 'gbifrb/helpers/configuration'
+require 'gbifrb/faraday'
+require 'gbifrb/utils'
+require 'gbifrb/get_data'
 
 ##
 # Gbif::Registry
