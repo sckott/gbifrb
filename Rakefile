@@ -10,7 +10,7 @@ end
 desc "Run tests"
 task :default => :test
 
-desc "Build gbif docs"
+desc "Build gbifrb docs"
 task :docs do
 	system "yardoc"
 end
@@ -25,17 +25,17 @@ task :clean do
   system "ls | grep [0-9].gem | xargs rm"
 end
 
-desc "Build gbif"
+desc "Build gbifrb"
 task :build do
-	system "gem build gbif.gemspec"
+	system "gem build gbifrb.gemspec"
 end
 
-desc "Install gbif"
+desc "Install gbifrb"
 task :install => [:bundle, :build] do
-	system "gem install gbif-#{Gbif::VERSION}.gem"
+	system "gem install gbifrb-#{Gbif::VERSION}.gem"
 end
 
 desc "Release to Rubygems"
 task :release => :build do
-  system "gem push gbif-#{Gbif::VERSION}.gem"
+  system "gem push gbifrb-#{Gbif::VERSION}.gem"
 end

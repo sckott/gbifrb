@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'gbif/version'
+require 'gbifrb/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'gbif'
+  s.name        = 'gbifrb'
   s.version     = Gbif::VERSION
   s.platform    = Gem::Platform::RUBY
   s.required_ruby_version = '>= 2.0'
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = "Low Level Ruby Client for the GBIF API"
   s.authors     = "Scott Chamberlain"
   s.email       = 'myrmecocystus@gmail.com'
-  s.homepage    = 'https://github.com/sckott/gbif'
+  s.homepage    = 'https://github.com/sckott/gbifrb'
   s.licenses    = 'MIT'
 
   s.files = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }

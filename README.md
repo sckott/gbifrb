@@ -1,11 +1,11 @@
-gbif
-====
+gbifrb
+======
 
-[![gem version](https://img.shields.io/gem/v/gbif.svg)](https://rubygems.org/gems/gbif)
-[![Build Status](https://api.travis-ci.org/sckott/gbif.png)](https://travis-ci.org/sckott/gbif)
-[![codecov.io](http://codecov.io/github/sckott/gbif/coverage.svg?branch=master)](http://codecov.io/github/sckott/gbif?branch=master)
+[![gem version](https://img.shields.io/gem/v/gbifrb.svg)](https://rubygems.org/gems/gbifrb)
+[![Build Status](https://api.travis-ci.org/sckott/gbifrb.png)](https://travis-ci.org/sckott/gbifrb)
+[![codecov.io](http://codecov.io/github/sckott/gbifrb/coverage.svg?branch=master)](http://codecov.io/github/sckott/gbifrb?branch=master)
 
-`gbif` is a low level client for the GBIF API
+`gbifrb` is a low level client for the GBIF API
 
 Other GBIF API clients:
 
@@ -42,14 +42,14 @@ occurrences
 ### Release version
 
 ```
-gem install gbif
+gem install gbifrb
 ```
 
 ### Development version
 
 ```
-git clone git@github.com:sckott/gbif.git
-cd gbif
+git clone git@github.com:sckott/gbifrb.git
+cd gbifrb
 rake install
 ```
 
@@ -105,4 +105,4 @@ coming soon ...
 * License: MIT
 
 [gbifapi]: https://www.gbif.org/developer/summary
-[changelog]: https://github.com/sckott/gbif/blob/master/CHANGELOG.md
+[changelog]: https://github.com/sckott/gbifrb/blob/master/CHANGELOG.md

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gbif (0.0.1)
+    gbifrb (0.0.1)
       faraday (~> 0.12.0.1)
       faraday_middleware (~> 0.11.0.1)
       multi_json (~> 1.12, >= 1.12.1)
@@ -52,7 +52,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.14, >= 1.14.6)
   codecov (~> 0.1.10)
-  gbif!
+  gbifrb!
   json (~> 2.0, >= 2.0.3)
   rake (~> 12.0, >= 12.0.0)
   simplecov (~> 0.14.1)
