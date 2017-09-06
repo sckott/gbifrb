@@ -92,9 +92,9 @@ module Gbif
     # @example
     #      require 'gbif'
     #
-    #      speices = Gbif::Species
-    #      speices.name_suggest("Helianthus")
-    #      speices.name_suggest("Poa")
+    #      species = Gbif::Species
+    #      species.name_suggest("Helianthus")
+    #      species.name_suggest("Poa")
     def self.name_suggest(q: nil, datasetKey: nil, rank: nil, limit: 100, offset: nil,
       verbose: nil, options: nil)
 
