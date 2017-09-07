@@ -10,19 +10,6 @@ require 'gbifrb/utils'
 
 ##
 # Gbif::Occurrences
-#
-# @!macro gbif_options
-#   @param options [Hash] Hash of options for configuring the request, passed on to Faraday.new
-#     - timeout [Fixnum] open/read timeout Integer in seconds
-#     - open_timeout [Fixnum] read timeout Integer in seconds
-#     - proxy [Hash] hash of proxy options
-#       - uri [String] Proxy Server URI
-#       - user [String] Proxy server username
-#       - password [String] Proxy server password
-#     - params_encoder [Hash] not sure what this is
-#     - bind [Hash] A hash with host and port values
-#     - boundary [String] of the boundary value
-#     - oauth [Hash] A hash with OAuth details
 module Gbif
   module Occurrences
     ##
@@ -332,6 +319,64 @@ module Gbif
              facetMultiselect: facetMultiselect}.tostrings
         opts = arguments.delete_if { |k, v| v.nil? }
         return Request.new('occurrence/search', opts, verbose, options).perform
+    end
+
+    ##
+    # Gets details for a single, interpreted occurrence
+    #
+    # @param key [int] A GBIF occurrence key
+    #
+    # @return [hash]
+    #
+    # @example
+    #
+    #       require 'gbifrb'
+    #
+    #       occ = Gbif::Occurrences
+    #       occ.get(key: 1258202889)
+    #       occ.get(key: 1227768771)
+    def self.get(key:, verbose: nil, options: nil)
+        url = 'occurrence/' + key.to_s
+        Request.new(url, {}, verbose, options).perform
+    end
+
+    ##
+    # Gets a verbatim occurrence record without any interpretation
+    #
+    # @param key [int] A GBIF occurrence key
+    #
+    # @return [hash]
+    #
+    # @example
+    #
+    #     require 'gbifrb'
+    #
+    #     occ = Gbif::Occurrences
+    #     occ.get_verbatim(key: 1258202889)
+    #     occ.get_verbatim(key: 1227768771)
+    def self.get_verbatim(key:, verbose: nil, options: nil)
+        url = 'occurrence/' + key.to_s + '/verbatim'
+        Request.new(url, {}, verbose, options).perform
+    end
+
+    ##
+    # Get a single occurrence fragment in its raw form (xml or json)
+    #
+    # @param key [int] A GBIF occurrence key
+    #
+    # @return: [hash]
+    #
+    # @example
+    #
+    #     require 'gbifrb'
+    #
+    #     occ = Gbif::Occurrences
+    #     occ.get_fragment(key: 1052909293)
+    #     occ.get_fragment(key: 1227768771)
+    #     occ.get_fragment(key: 1227769518)
+    def self.get_fragment(key:, verbose: nil, options: nil)
+        url = 'occurrence/' + key.to_s + '/fragment'
+        Request.new(url, {}, verbose, options).perform
     end
 
   end

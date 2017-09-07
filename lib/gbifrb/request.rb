@@ -28,13 +28,13 @@ module Gbif
       if verbose
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
           f.response :logger
-          f.adapter  Faraday.default_adapter
           f.use FaradayMiddleware::RaiseHttpException
+          f.adapter  Faraday.default_adapter
         end
       else
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
-          f.adapter  Faraday.default_adapter
           f.use FaradayMiddleware::RaiseHttpException
+          f.adapter  Faraday.default_adapter
         end
       end
 

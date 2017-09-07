@@ -16,19 +16,6 @@ require 'gbifrb/utils'
 #   @param offset [Fixnum] Number of record to start at, any non-negative integer. Default: 0
 #   @param limit [Fixnum] Number of results to return. Default: 100
 #   @param verbose [Boolean] Print request headers to stdout. Default: false
-#
-# @!macro gbif_options
-#   @param options [Hash] Hash of options for configuring the request, passed on to Faraday.new
-#     - timeout [Fixnum] open/read timeout Integer in seconds
-#     - open_timeout [Fixnum] read timeout Integer in seconds
-#     - proxy [Hash] hash of proxy options
-#       - uri [String] Proxy Server URI
-#       - user [String] Proxy server username
-#       - password [String] Proxy server password
-#     - params_encoder [Hash] not sure what this is
-#     - bind [Hash] A hash with host and port values
-#     - boundary [String] of the boundary value
-#     - oauth [Hash] A hash with OAuth details
 module Gbif
   module Species
     ##
@@ -58,8 +45,8 @@ module Gbif
     #      require 'gbif'
     #
     #      species = Gbif::Species
-    #      species.name_backbone("Helianthus")
-    #      species.name_backbone("Poa")
+    #      species.name_backbone(name: "Helianthus")
+    #      species.name_backbone(name: "Poa")
     def self.name_backbone(name:, rank: nil, kingdom: nil, phylum: nil,
       clazz: nil, order: nil, family: nil, genus: nil, strict: nil,
       offset: nil, limit: nil, verbose: nil, options: nil)
@@ -93,8 +80,8 @@ module Gbif
     #      require 'gbif'
     #
     #      species = Gbif::Species
-    #      species.name_suggest("Helianthus")
-    #      species.name_suggest("Poa")
+    #      species.name_suggest(q: "Helianthus")
+    #      species.name_suggest(q: "Poa")
     def self.name_suggest(q: nil, datasetKey: nil, rank: nil, limit: 100, offset: nil,
       verbose: nil, options: nil)
 
@@ -134,8 +121,8 @@ module Gbif
     #      require 'gbif'
     #
     #      speices = Gbif::Species
-    #      speices.name_usage("Helianthus")
-    #      speices.name_usage("Poa")
+    #      speices.name_usage(name: "Helianthus")
+    #      speices.name_usage(name: "Poa")
     def self.name_usage(key: nil, name: nil, data: 'all', language: nil,
       datasetKey: nil, uuid: nil, sourceId: nil, rank: nil, shortname: nil,
       limit: 100, offset: nil, verbose: nil, options: nil)
@@ -214,8 +201,8 @@ module Gbif
     #      require 'gbif'
     #
     #      speices = Gbif::Species
-    #      speices.name_lookup("Helianthus")
-    #      speices.name_lookup("Poa")
+    #      speices.name_lookup(q: "Helianthus")
+    #      speices.name_lookup(q: "Poa")
     def self.name_lookup(q: nil, rank: nil, higherTaxonKey: nil, status: nil,
       isExtinct: nil, habitat: nil, nameType: nil, datasetKey: nil,
       nomenclaturalStatus: nil, limit: 100, offset: nil, facet: false,

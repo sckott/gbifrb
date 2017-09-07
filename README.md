@@ -24,6 +24,12 @@ registry
 
 * `/node` - `Gbif::Registry.nodes`
 * `/network` - `Gbif::Registry.networks`
+* `/installations` - `Gbif::Registry.installations`
+* `/organizations` - `Gbif::Registry.organizations`
+* `/dataset_metrics` - `Gbif::Registry.dataset_metrics`
+* `/datasets` - `Gbif::Registry.datasets`
+* `/dataset_suggest` - `Gbif::Registry.dataset_suggest`
+* `/dataset_search` - `Gbif::Registry.dataset_search`
 
 species
 
@@ -35,6 +41,9 @@ species
 occurrences
 
 * `/search` - `Gbif::Occurrences.search`
+* `/get` - `Gbif::Occurrences.get`
+* `/get_verbatim` - `Gbif::Occurrences.get_verbatim`
+* `/get_fragment` - `Gbif::Occurrences.get_fragment`
 
 
 ## Install
@@ -77,7 +86,7 @@ GBIF backbone
 
 ```ruby
 species = Gbif::Species
-species.name_backbone("Helianthus")
+species.name_backbone(name: "Helianthus")
 ```
 
 Suggester
@@ -95,9 +104,19 @@ occ.search(taxonKey: 3329049, limit: 2)
 occ.search(scientificName: 'Ursus americanus')
 ```
 
-### Use on the CLI
+### curl options
 
-coming soon ...
+```ruby
+species = Gbif::Species
+species.name_backbone("Helianthus", verbose: true)
+```
+
+### Todo
+
+* CLI interface
+* occurrence metrics methods
+* occurrence downloads methods
+* OAI-PMH interface
 
 ## Meta
 
