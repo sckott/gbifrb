@@ -98,7 +98,7 @@ module Gbif
     # @return [Hash] A hash
     #
     # @example
-    #       require 'gbif'
+    #       require 'gbifrb'
     #       occ = Gbif::Occurrences
     #
     #       occ.search(taxonKey: 3329049)

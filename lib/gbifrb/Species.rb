@@ -42,7 +42,7 @@ module Gbif
     # @return [Hash] A hash
     #
     # @example
-    #      require 'gbif'
+    #      require 'gbifrb'
     #
     #      species = Gbif::Species
     #      species.name_backbone(name: "Helianthus")
@@ -77,7 +77,7 @@ module Gbif
     # @return [Hash] A hash
     #
     # @example
-    #      require 'gbif'
+    #      require 'gbifrb'
     #
     #      species = Gbif::Species
     #      species.name_suggest(q: "Helianthus")
@@ -118,7 +118,7 @@ module Gbif
     # @return [Array] An array of hashes
     #
     # @example
-    #      require 'gbif'
+    #      require 'gbifrb'
     #
     #      speices = Gbif::Species
     #      speices.name_usage(name: "Helianthus")
@@ -198,7 +198,7 @@ module Gbif
     # @return [Hash] A hash
     #
     # @example
-    #      require 'gbif'
+    #      require 'gbifrb'
     #
     #      speices = Gbif::Species
     #      speices.name_lookup(q: "Helianthus")

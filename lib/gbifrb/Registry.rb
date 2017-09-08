@@ -40,7 +40,7 @@ module Gbif
     #
     # @example
     #
-    #      require 'gbif'
+    #      require 'gbifrb'
     #
     #      registry = Gbif::Registry
     #      registry.networks(limit: 5)
@@ -86,7 +86,7 @@ module Gbif
     #
     # @example
     #
-    #     require 'gbif'
+    #     require 'gbifrb'
     #
     #     registry = Gbif::Registry
     #     registry.nodes(limit: 5)
@@ -207,7 +207,7 @@ module Gbif
     #
     # @example
     #
-    #    require 'gbif'
+    #    require 'gbifrb'
     #
     #    registry = Gbif::Registry
     #    registry.installations(limit: 5)
