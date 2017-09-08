@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/match?name=Helianthu&strict=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday/v0.13.1 Gbif/v0.0.1
+      X-User-Agent:
+      - Faraday/v0.13.1 Gbif/v0.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Sep 2017 00:19:06 GMT
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - HEAD, GET, POST, DELETE, PUT
+      Server:
+      - Jetty(9.3.z-SNAPSHOT)
+      X-Api-Url:
+      - "/v1/species/match?name=Helianthu&strict=true"
+      Cache-Control:
+      - public, max-age=3601
+      X-Varnish:
+      - 344754412 338299214
+      Age:
+      - '307'
+      Via:
+      - 1.1 varnish (Varnish/5.1)
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '53'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"confidence":100,"matchType":"NONE","synonym":false}'
+    http_version: 
+  recorded_at: Fri, 08 Sep 2017 00:24:14 GMT
+recorded_with: VCR 3.0.3

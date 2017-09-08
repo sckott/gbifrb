@@ -102,8 +102,10 @@ module Gbif
     #       occ = Gbif::Occurrences
     #
     #       occ.search(taxonKey: 3329049)
+    #
     #       # Return 2 results, this is the default by the way
     #       occ.search(taxonKey: 3329049, limit: 2)
+    #
     #       # Instead of getting a taxon key first, you can search for a name directly
     #       # However, note that using this approach (with `scientificName="..."`)
     #       # you are getting synonyms too. The results for using `scientifcName` and
@@ -113,29 +115,37 @@ module Gbif
     #       species = Gbif::Species
     #       key = species.name_backbone(name: 'Ursus americanus', rank: 'species')['usageKey']
     #       occ.search(taxonKey: key)
+    #
     #       # Search by dataset key
     #       occ.search(datasetKey: '7b5d6a48-f762-11e1-a439-00145eb45e9a', limit: 20)
+    #
     #       # Search by catalog number
     #       occ.search(catalogNumber: "49366", limit: 20)
-    #       # occ.search(catalogNumber: ["49366","Bird.27847588"], limit: 20)
+    #       occ.search(catalogNumber: ["49366","Bird.27847588"], limit: 20)
+    #
     #       # Use paging parameters (limit and offset) to page. Note the different results
     #       # for the two queries below.
     #       occ.search(datasetKey: '7b5d6a48-f762-11e1-a439-00145eb45e9a', offset: 10, limit: 5)
     #       occ.search(datasetKey: '7b5d6a48-f762-11e1-a439-00145eb45e9a', offset: 20, limit: 5)
+    #
     #       # Many dataset keys
     #       # occ.search(datasetKey: ["50c9509d-22c7-4a22-a47d-8c48425ef4a7", "7b5d6a48-f762-11e1-a439-00145eb45e9a"], limit: 20)
     #       # Search by collector name
-    #       res = occ.search(recordedBy: "smith", limit: 20)
-    #       [ x['recordedBy'] for x in res['results'] ]
+    #       occ.search(recordedBy: "smith", limit: 20)
+    #
     #       # Many collector names
-    #       # occ.search(recordedBy: ["smith","BJ Stacey"], limit: 20)
+    #       occ.search(recordedBy: ["smith","BJ Stacey"], limit: 20)
+    #
     #       # Search for many species
+    #       species = Gbif::Species
     #       splist = ['Cyanocitta stelleri', 'Junco hyemalis', 'Aix sponsa']
-    #       keys = [ species.name_suggest(x)[0]['key'] for x in splist ]
-    #       out = [ occ.search(taxonKey: x, limit: 1) for x in keys ]
-    #       [ x['results'][0]['speciesKey'] for x in out ]
+    #       keys = splist.map { |x| species.name_suggest(q: x)[0]['key'] }
+    #       out = keys.map { |z| occ.search(taxonKey: z, limit: 1) }
+    #       out.collect{ |b| b['results'][0]['speciesKey'] }
+    #
     #       # Search - q parameter
     #       occ.search(q: "kingfisher", limit: 20)
+    #
     #       ## spell check - only works with the `search` parameter
     #       ### spelled correctly - same result as above call
     #       occ.search(q: "kingfisher", limit: 20, spellCheck: true)
@@ -144,25 +154,32 @@ module Gbif
     #       ### spelled incorrectly - stops with many suggested spellings
     #       ###   and number of results for each
     #       occ.search(q: "helir", limit: 20, spellCheck: true)
+    #
     #       # Search on latitidue and longitude
     #       occ.search(decimalLatitude: 50, decimalLongitude: 10, limit: 2)
+    #
     #       # Search on a bounding box
     #       ## in well known text format
     #       occ.search(geometry: 'POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))', limit: 20)
     #       species = Gbif::Species
     #       key = species.name_suggest(q: 'Aesculus hippocastanum')[0]['key']
     #       occ.search(taxonKey: key, geometry: 'POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))', limit: 20)
+    #
     #       ## multipolygon
     #       wkt = 'MULTIPOLYGON(((-123 38, -123 43, -116 43, -116 38, -123 38)),((-97 41, -97 45, -93 45, -93 41, -97 41)))'
     #       occ.search(geometry: wkt, limit: 20)
+    #
     #       # Search on country
     #       occ.search(country: 'US', limit: 20)
     #       occ.search(country: 'FR', limit: 20)
     #       occ.search(country: 'DE', limit: 20)
+    #
     #       # Get only occurrences with lat/long data
     #       occ.search(taxonKey: key, hasCoordinate: true, limit: 20)
+    #
     #       # Get only occurrences that were recorded as living specimens
     #       occ.search(taxonKey: key, basisOfRecord: "LIVING_SPECIMEN", hasCoordinate: true, limit: 20)
+    #
     #       # Get occurrences for a particular eventDate
     #       occ.search(taxonKey: key, eventDate: "2013", limit: 20)
     #       occ.search(taxonKey: key, year: "2013", limit: 20)
@@ -223,8 +240,7 @@ module Gbif
     #       # Search for occurrences with images
     #       occ.search(mediatype: 'StillImage')
     #       occ.search(mediatype: 'MovingImage')
-    #       x = occ.search(mediatype: 'Sound')
-    #       [z['media'] for z in x['results']]
+    #       occ.search(mediatype: 'Sound')
     #
     #       # Query based on issues
     #       occ.search(taxonKey: 1, issue: 'DEPTH_UNLIKELY')

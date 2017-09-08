@@ -11,7 +11,7 @@ require "test/unit"
 require "json"
 require_relative "test-helper"
 
-class TestWorks < Test::Unit::TestCase
+class TestOccurrencesSearch < Test::Unit::TestCase
 
   def setup
     @occ = Gbif::Occurrences
@@ -36,55 +36,23 @@ class TestWorks < Test::Unit::TestCase
     end
   end
 
-  # def test_search_query_param
-  #   VCR.use_cassette("test_search_query_param") do
-  #     res = @occ.search(q: "kingfisher", limit: 20)
-  #     assert_equal(6, res.length)
-  #     assert_equal(Hash, res.class)
-  #   end
-  # end
+  def test_search_more_than1
+    VCR.use_cassette("test_search_more_than1") do
+      res = @occ.search(catalogNumber: ["49366","Bird.27847588"], limit: 100)
+      catnums = res['results'].collect { |k,v| k['catalogNumber'] }
+      assert_equal(6, res.length)
+      assert_equal(Hash, res.class)
+      assert_true(catnums.uniq.include? "49366")
+    end
+  end
 
-  # def test_search_filter_handler
-  #   VCR.use_cassette("test_search_filter_handler") do
-  #     res = Serrano.works(filter: {has_funder: true, has_full_text: true})
-  #     assert_equal(Hash, res.class)
-  #   end
-  #   # assert_equal(200, res.status)
-  # end
-
-  # def test_search_sort
-  #   VCR.use_cassette("test_search_sort") do
-  #     res1 = Serrano.works(query: "ecology", sort: 'relevance')
-  #     scores = res1['message']['items'].collect { |x| x['score'] }.flatten
-  #     res2 = Serrano.works(query: "ecology", sort: 'deposited')
-  #     deposited = res2['message']['items'].collect { |x| x['deposited']['date-time'] }.flatten
-  #     assert_equal(4, res1.length)
-  #     assert_equal(4, res2.length)
-  #     assert_equal(Hash, res1.class)
-  #     assert_equal(Hash, res2.class)
-  #     assert_true(scores.max > scores.min)
-  #     assert_true(deposited.max > deposited.min)
-  #   end
-  # end
-
-  # def test_search_facet
-  #   VCR.use_cassette("test_search_facet") do
-  #     res = Serrano.works(facet: 'license:*', limit: 0, filter: {has_full_text: true})
-  #     assert_equal(4, res.length)
-  #     assert_equal(Hash, res.class)
-  #     assert_equal(0, res['message']['items'].length)
-  #     assert_equal(1, res['message']['facets'].length)
-  #     assert_true(res['message']['facets']['license']['values'].length > 100)
-  #   end
-  # end
-
-  # def test_search_sample
-  #   VCR.use_cassette("test_search_sample") do
-  #     res = Serrano.works(sample: 3)
-  #     assert_equal(4, res.length)
-  #     assert_equal(Hash, res.class)
-  #     assert_equal(3, res['message']['items'].length)
-  #   end
-  # end
+  def test_search_spell_check
+    VCR.use_cassette("test_search_spell_check") do
+      res = @occ.search(q: "kingfisher", limit: 20, spellCheck: true)
+      assert_equal(7, res.length)
+      assert_equal(Hash, res.class)
+      assert_true(res.keys.include? "spellCheckResponse")
+    end
+  end
 
 end

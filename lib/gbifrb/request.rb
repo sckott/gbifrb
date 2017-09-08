@@ -29,11 +29,13 @@ module Gbif
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
           f.response :logger
           f.use FaradayMiddleware::RaiseHttpException
+          f.options.params_encoder = Faraday::FlatParamsEncoder
           f.adapter  Faraday.default_adapter
         end
       else
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
           f.use FaradayMiddleware::RaiseHttpException
+          f.options.params_encoder = Faraday::FlatParamsEncoder
           f.adapter  Faraday.default_adapter
         end
       end
