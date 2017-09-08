@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = Gbif::VERSION
   s.platform    = Gem::Platform::RUBY
   s.required_ruby_version = '>= 2.0'
-  s.date        = '2017-09-05'
+  s.date        = '2017-09-07'
   s.summary     = "GBIF Client"
   s.description = "Low Level Ruby Client for the GBIF API"
   s.authors     = "Scott Chamberlain"
