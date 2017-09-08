@@ -56,7 +56,7 @@ module Gbif
               family: family, genus: genus, strict: strict,
               offset: offset, limit: limit }.tostrings
       opts = arguments.delete_if { |k, v| v.nil? }
-      Request.new("species/match", args = opts, verbose = verbose, options = options).perform
+      Request.new("species/match", opts, verbose, options).perform
     end
 
     ##
@@ -88,7 +88,7 @@ module Gbif
       arguments = { q: q, datasetKey: datasetKey, rank: rank,
         limit: limit, offset: offset }.tostrings
       opts = arguments.delete_if { |k, v| v.nil? }
-      Request.new("species/suggest", args = opts, verbose = verbose, options = options).perform
+      Request.new("species/suggest", opts, verbose, options).perform
     end
 
     ##
@@ -132,7 +132,7 @@ module Gbif
         sourceId: sourceId, rank: rank, shortname: shortname,
         limit: limit, offset: offset }.tostrings
       opts = arguments.delete_if { |k, v| v.nil? }
-      Request.new("species/", args = opts, verbose = verbose, options = options).perform
+      Request.new("species/", opts, verbose, options).perform
     end
 
     ##
@@ -216,7 +216,7 @@ module Gbif
         facetMultiselect: facetMultiselect, type: type, hl: hl,
         verbose: verbosity }.tostrings
       opts = arguments.delete_if { |k, v| v.nil? }
-      Request.new("species/search", args = opts, verbose = verbose, options = options).perform
+      Request.new("species/search", opts, verbose, options).perform
     end
 
   end
