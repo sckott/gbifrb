@@ -314,7 +314,7 @@ module Gbif
         hasGeospatialIssue: nil, issue: nil, q: nil, spellCheck: nil, mediatype: nil,
         limit: 300, offset: 0, establishmentMeans: nil,
         facet: nil, facetMincount: nil, facetMultiselect: nil,
-        verbose: nil, options: nil)
+        verbose: nil, options: nil, as: 'hash')
 
         arguments = { taxonKey: taxonKey, repatriated: repatriated,
              kingdomKey: kingdomKey, phylumKey: phylumKey, classKey: classKey,
@@ -334,7 +334,7 @@ module Gbif
              facetMincount: facetMincount, facet: facet,
              facetMultiselect: facetMultiselect}.tostrings
         opts = arguments.delete_if { |k, v| v.nil? }
-        return Request.new('occurrence/search', opts, verbose, options).perform
+        return Request.new('occurrence/search', opts, verbose, options).perform(as: as)
     end
 
     ##

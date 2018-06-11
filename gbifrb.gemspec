@@ -19,6 +19,9 @@ Gem::Specification.new do |s|
   s.files = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }
   s.require_paths = ["lib"]
 
+  s.bindir      = 'bin'
+  s.executables = ['gbif']
+
   s.add_development_dependency 'bundler', '~> 1.14', '>= 1.14.6'
   s.add_development_dependency 'rake', '~> 12.0', '>= 12.0.0'
   s.add_development_dependency 'test-unit', '~> 3.2', '>= 3.2.1'
@@ -30,6 +33,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'faraday', '~> 0.12.0.1'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.11.0.1'
-  s.add_runtime_dependency 'thor', '~> 0.19.4'
+  s.add_runtime_dependency 'thor', '~> 0.20.0'
   s.add_runtime_dependency 'multi_json', '~> 1.12', '>= 1.12.1'
 end

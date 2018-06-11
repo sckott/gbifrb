@@ -1,0 +1,125 @@
+#!/usr/bin/env ruby
+
+require "thor"
+require "gbifrb"
+require "multi_json"
+
+class Sr < Thor
+  include Thor::Actions
+
+  desc "name [name]", "Get name info by taxonomic name"
+  long_desc <<-LONGDESC
+    `gbif name` accepts one taxonomic names
+
+    # A single name
+    \x5$ gbif name Helianthus
+
+    # limit results
+    \x5$ gbif name Helianthus --limit 1
+  LONGDESC
+  option :limit, :type => :numeric, :default => nil
+  def name(name)
+    species = Gbif::Species
+    out = species.name_suggest(q: name, limit: options[:limit], as: 'text')
+    puts out
+  end
+
+  desc "taxonkey [name]", "Get taxonkey for a taxonomic name"
+  long_desc <<-LONGDESC
+    `gbif taxonkey` accepts one taxonomic names
+
+    # A single name
+    \x5$ gbif taxonkey Helianthus
+  LONGDESC
+  option :limit, :type => :numeric, :default => nil
+  def taxonkey(name)
+    species = Gbif::Species
+    out = species.name_suggest(q: name, limit: options[:limit])
+    if !out.nil?
+      out = out[0]['key']
+    end
+    puts out
+  end
+
+  desc "occs [taxonkey]", "Get occurrences for a taxonomic key"
+  long_desc <<-LONGDESC
+    `gbif taxonkey` accepts a taxon key and searches for occurrences for that key
+
+    # A single name
+    \x5$ gbif occs 3119134
+  LONGDESC
+  option :limit, :type => :numeric, :default => nil
+  option :hascoords, :type => :boolean, :default => true
+  def occs(taxonkey)
+    occ = Gbif::Occurrences
+    out = occ.search(taxonKey: taxonkey, limit: options[:limit], 
+      hasCoordinate: options[:hascoords], as: 'text')
+    puts out
+  end
+
+  desc "occ2geojson [json]", "Converts occurrences to GeoJSON"
+  long_desc <<-LONGDESC
+    `gbif occ2geojson` accepts json occurrences and outputs GeoJSON
+
+    # occurrences to geojson
+    \x5$ gbif taxonkey Helianthus | xargs gbif occs --limit 1 | xargs gbif occ2geojson
+  LONGDESC
+  option :limit, :type => :numeric, :default => nil
+  option :props, :type => :boolean, :default => false
+  # option :polys, :type => :boolean, :default => false
+  def occ2geojson(json)
+    getkeys = ["datasetKey", "publishingOrgKey", "publishingCountry", 
+      "protocol", "lastCrawled", "lastParsed", "crawlId", "extensions", 
+      "basisOfRecord", "taxonKey", "kingdomKey", "phylumKey", "classKey", 
+      "orderKey", "familyKey", "genusKey", "speciesKey", "scientificName", 
+      "kingdom", "phylum", "order", "family", "genus", "species", 
+      "genericName", "specificEpithet", "taxonRank", "dateIdentified", 
+      "coordinateUncertaintyInMeters", "year", "month", "day", "eventDate", 
+      "issues", "modified", "lastInterpreted", "references", "license", 
+      "geodeticDatum", "class", "countryCode", "country"]
+    x = MultiJson.load(json);
+    res = x['results'];
+    if options[:props]
+      # FIXME: if props, make a separate feature:point for each result
+      props = 5;
+    else
+      props = {}
+    end
+    geo_stub = {
+      "type" => "FeatureCollection", 
+      "features" => [{
+        "type" => "Feature",
+        "properties" => {},
+        "geometry" => {
+          "type" => "MultiPoint",
+          "coordinates" => res.map { |x| x.slice("decimalLongitude", "decimalLatitude").values }
+        }
+      }]
+    }
+    puts geo_stub.to_json
+  end
+
+  desc "version", "Get gbifrb version"
+  def version
+    puts Gbif::VERSION
+  end
+
+  private
+
+  def print_works(data)
+    if data.is_a? Array
+      data = data[0]['message']['items']
+    else
+      data = data.collect { |x| x['message'].select { |k,v| k[/DOI|type|title/] } }
+    end
+    data.each do |x|
+      puts 'DOI: ' + x['DOI']
+      puts 'type: ' + x['type']
+      puts 'title: ' + x['title'][0]
+      puts
+    end
+  end
+
+end
+
+Sr.start(ARGV)

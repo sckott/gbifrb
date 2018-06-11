@@ -24,7 +24,7 @@ module Gbif
       self.options = options
     end
 
-    def perform
+    def perform(as: "hash")
       if verbose
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
           f.response :logger
@@ -44,7 +44,16 @@ module Gbif
       conn.headers["X-USER-AGENT"] = make_ua
 
       res = conn.get self.endpt, self.args
-      return MultiJson.load(res.body)
+
+      case as
+      when 'hash'
+        return MultiJson.load(res.body)
+      when 'text'
+        return res.body
+      else
+        return MultiJson.load(res.body)
+      end
+      # return MultiJson.load(res.body)
     end
 
   end

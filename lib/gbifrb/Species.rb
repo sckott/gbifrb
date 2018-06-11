@@ -83,12 +83,12 @@ module Gbif
     #      species.name_suggest(q: "Helianthus")
     #      species.name_suggest(q: "Poa")
     def self.name_suggest(q: nil, datasetKey: nil, rank: nil, limit: 100, offset: nil,
-      verbose: nil, options: nil)
+      verbose: nil, options: nil, as: 'hash')
 
       arguments = { q: q, datasetKey: datasetKey, rank: rank,
         limit: limit, offset: offset }.tostrings
       opts = arguments.delete_if { |k, v| v.nil? }
-      Request.new("species/suggest", opts, verbose, options).perform
+      Request.new("species/suggest", opts, verbose, options).perform(as: as)
     end
 
     ##
