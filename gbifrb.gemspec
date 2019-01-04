@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency 'bundler', '~> 1.14', '>= 1.14.6'
+  s.add_development_dependency 'bundler', '>= 1.14.6', '~> 2.0'
   s.add_development_dependency 'rake', '~> 12.0', '>= 12.0.0'
   s.add_development_dependency 'test-unit', '~> 3.2', '>= 3.2.1'
   s.add_development_dependency 'simplecov', '~> 0.16.1'
