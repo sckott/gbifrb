@@ -10,7 +10,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     codecov (0.1.14)
       json
@@ -23,14 +23,14 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
-    hashdiff (0.3.8)
+    hashdiff (0.4.0)
     json (2.2.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     power_assert (1.1.4)
-    public_suffix (3.0.3)
+    public_suffix (2.0.5)
     rake (12.3.2)
-    safe_yaml (1.0.4)
+    safe_yaml (1.0.5)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -41,10 +41,10 @@ GEM
     thor (0.20.3)
     url (0.3.2)
     vcr (5.0.0)
-    webmock (3.5.1)
+    webmock (3.6.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-      hashdiff
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   ruby
