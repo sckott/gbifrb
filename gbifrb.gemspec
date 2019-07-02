@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'bundler', '>= 1.14.6', '~> 2.0'
   s.add_development_dependency 'rake', '~> 12.0', '>= 12.0.0'
   s.add_development_dependency 'test-unit', '~> 3.2', '>= 3.2.1'
-  s.add_development_dependency 'simplecov', '~> 0.16.1'
+  s.add_development_dependency 'simplecov', '~> 0.17.0'
   s.add_development_dependency 'codecov', '~> 0.1.10'
   s.add_development_dependency 'json', '~> 2.0', '>= 2.0.3'
   s.add_development_dependency 'vcr', '>= 3.0.3', '~> 5.0'
