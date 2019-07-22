@@ -29,7 +29,7 @@ GEM
     multipart-post (2.0.0)
     power_assert (1.1.4)
     public_suffix (2.0.5)
-    rake (12.3.2)
+    rake (12.3.3)
     safe_yaml (1.0.5)
     simplecov (0.17.0)
       docile (~> 1.1)
