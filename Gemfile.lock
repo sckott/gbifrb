@@ -27,7 +27,7 @@ GEM
     json (2.2.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    power_assert (1.1.4)
+    power_assert (1.1.5)
     public_suffix (2.0.5)
     rake (12.3.3)
     safe_yaml (1.0.5)
@@ -36,7 +36,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    test-unit (3.3.3)
+    test-unit (3.3.4)
       power_assert
     thor (0.20.3)
     url (0.3.2)
