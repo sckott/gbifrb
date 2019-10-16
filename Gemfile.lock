@@ -25,7 +25,7 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     hashdiff (1.0.0)
     json (2.2.0)
-    multi_json (1.13.1)
+    multi_json (1.14.1)
     multipart-post (2.1.1)
     power_assert (1.1.5)
     public_suffix (2.0.5)
