@@ -50,7 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.0, >= 1.14.6)
+  bundler (~> 2.1, >= 1.14.6)
   codecov (~> 0.1.10)
   gbifrb!
   json (~> 2.0, >= 2.0.3)
@@ -61,4 +61,4 @@ DEPENDENCIES
   webmock (~> 3.5, >= 2.3.2)
 
 BUNDLED WITH
-   2.0.2
+   2.1.0
