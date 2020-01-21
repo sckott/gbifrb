@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock', '>= 2.3.2', '~> 3.5'
 
   s.add_runtime_dependency 'faraday', '>= 0.12.0.1', '< 1.0.1'
-  s.add_runtime_dependency 'faraday_middleware', '>= 0.11.0.1', '< 0.13.2.0'
+  s.add_runtime_dependency 'faraday_middleware', '>= 0.11.0.1', '< 0.14.1'
   s.add_runtime_dependency 'thor', '>= 0.19.4', '< 1.1.0'
   s.add_runtime_dependency 'multi_json', '~> 1.12', '>= 1.12.1'
 end
