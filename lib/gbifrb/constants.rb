@@ -1,6 +1,6 @@
 require 'net/http'
 
-NETWORKABLE_EXCEPTIONS = [Faraday::Error::ClientError,
+NETWORKABLE_EXCEPTIONS = [Faraday::ClientError,
                           URI::InvalidURIError,
                           Encoding::UndefinedConversionError,
                           ArgumentError,
