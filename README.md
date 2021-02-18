@@ -11,6 +11,7 @@ Other GBIF API clients:
 
 - Python: [pygbif](https://github.com/sckott/pygbif)
 - R: [rgbif](https://github.com/ropensci/rgbif)
+- PHP: [php-gbif](https://gitlab.res-telae.cat/restelae/php-gbif)
 
 ## Changes
 
