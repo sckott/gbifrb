@@ -96,6 +96,30 @@ Suggester
 species.name_suggest(q: "Helianthus")
 ```
 
+Lookup
+
+```ruby
+species.name_lookup(q: "Helianthus")
+```
+
+Lookup example with more parameters: name usages of plants where accepted scientific name includes 'reptans':
+
+```ruby
+species.name_lookup(q: 'reptans', higherTaxonKey: 6, nameType: 'SCIENTIFIC', status: 'ACCEPTED')
+```
+
+Name usage (`/species`)
+
+```ruby
+species.name_usage(name: "Helianthus")
+```
+
+Name usage example with more parameters: name usages of 'Andropogon' in Database of Vascular Plants of Canada (VASCAN) checklist:
+
+```ruby
+species.name_usage(name: 'Andropogon', datasetKey: '3f8a1297-3259-4700-91fc-acc4170b27ce')
+```
+
 ### Occurrences
 
 ```ruby
