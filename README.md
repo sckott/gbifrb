@@ -93,7 +93,7 @@ species.name_backbone(name: "Helianthus")
 Suggester
 
 ```ruby
-species.name_suggest("Helianthus")
+species.name_suggest(q: "Helianthus")
 ```
 
 ### Occurrences
