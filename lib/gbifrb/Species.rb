@@ -96,25 +96,11 @@ module Gbif
     #
     # @!macro gbif_params
     # @!macro gbif_options
-    # @param key [Fixnum] A GBIF key for a taxon
     # @param name [String] Filters by a case insensitive, canonical namestring,
     #   e.g. 'Puma concolor'
-    # @param data [String] The type of data to get. Default: 'all'. Options: 'all',
-    #  'verbatim', 'name', 'parents', 'children', 'related', 'synonyms', 'descriptions',
-    #  'distributions', 'media', 'references', 'speciesProfiles', 'vernacularNames',
-    #  'typeSpecimens', 'root'
     # @param language [String] Language, default is english
     # @param datasetKey [String] Filters by the dataset's key (a uuid)
-    # @param uuid [String] A uuid for a dataset. Should give exact same results as datasetKey.
     # @param sourceId [Fixnum] Filters by the source identifier.
-    # @param rank [String] Taxonomic rank. Filters by taxonomic rank as one of:
-    #    'CLASS', 'CULTIVAR', 'CULTIVAR_GROUP', 'DOMAIN', 'FAMILY', 'FORM', 'GENUS', 'INFORMAL',
-    #    'INFRAGENERIC_NAME', 'INFRAORDER', 'INFRASPECIFIC_NAME', 'INFRASUBSPECIFIC_NAME',
-    #    'KINGDOM', 'ORDER', 'PHYLUM', 'SECTION', 'SERIES', 'SPECIES', 'STRAIN', 'SUBCLASS', 'SUBFAMILY',
-    #    'SUBFORM', 'SUBGENUS', 'SUBKINGDOM', 'SUBORDER', 'SUBPHYLUM', 'SUBSECTION', 'SUBSERIES',
-    #    'SUBSPECIES', 'SUBTRIBE', 'SUBVARIETY', 'SUPERCLASS', 'SUPERFAMILY', 'SUPERORDER',
-    #    'SUPERPHYLUM', 'SUPRAGENERIC_NAME', 'TRIBE', 'UNRANKED', 'VARIETY'
-    # @param shortname [String] A short name..need more info on this?
     # @return [Array] An array of hashes
     #
     # @example
@@ -123,13 +109,10 @@ module Gbif
     #      speices = Gbif::Species
     #      speices.name_usage(name: "Helianthus")
     #      speices.name_usage(name: "Poa")
-    def self.name_usage(key: nil, name: nil, data: 'all', language: nil,
-      datasetKey: nil, uuid: nil, sourceId: nil, rank: nil, shortname: nil,
+    def self.name_usage(name: nil, language: nil, datasetKey: nil, sourceId: nil,
       limit: 100, offset: nil, verbose: nil, options: nil)
 
-      arguments = { key: key, name: name, data: data,
-        language: language, datasetKey: datasetKey, uuid: uuid,
-        sourceId: sourceId, rank: rank, shortname: shortname,
+      arguments = { name: name, language: language, datasetKey: datasetKey, sourceId: sourceId,
         limit: limit, offset: offset }.tostrings
       opts = arguments.delete_if { |k, v| v.nil? }
       Request.new("species/", opts, verbose, options).perform

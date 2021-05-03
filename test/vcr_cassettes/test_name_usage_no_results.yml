@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gbif.org/v1/species/?data=all&limit=100&name=Unknown%20umbellifer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday/v0.12.0.1 Gbif/v0.1.0
+      X-User-Agent:
+      - Faraday/v0.12.0.1 Gbif/v0.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 25 Apr 2021 00:26:32 GMT
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - HEAD, GET, POST, DELETE, PUT, OPTIONS
+      Server:
+      - Jetty(9.3.z-SNAPSHOT)
+      Cache-Control:
+      - public, max-age=3601
+      X-Varnish:
+      - 1044676717 1025934607
+      Age:
+      - '257'
+      Via:
+      - 1.1 varnish (Varnish/6.0)
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '57'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[]}'
+  recorded_at: Sun, 25 Apr 2021 00:30:50 GMT
+recorded_with: VCR 6.0.0
