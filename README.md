@@ -3,7 +3,7 @@ gbifrb
 
 [![gem version](https://img.shields.io/gem/v/gbifrb.svg)](https://rubygems.org/gems/gbifrb)
 [![Ruby](https://github.com/sckott/gbifrb/workflows/Ruby/badge.svg)](https://github.com/sckott/gbifrb/actions?query=workflow%3ARuby)
-[![codecov.io](http://codecov.io/github/sckott/gbifrb/coverage.svg?branch=master)](http://codecov.io/github/sckott/gbifrb?branch=master)
+[![codecov.io](http://codecov.io/github/sckott/gbifrb/coverage.svg?branch=main)](http://codecov.io/github/sckott/gbifrb?branch=main)
 
 `gbifrb` is a low level client for the GBIF API
 
@@ -149,4 +149,4 @@ species.name_backbone("Helianthus", verbose: true)
 * License: MIT
 
 [gbifapi]: https://www.gbif.org/developer/summary
-[changelog]: https://github.com/sckott/gbifrb/blob/master/CHANGELOG.md
+[changelog]: https://github.com/sckott/gbifrb/blob/main/CHANGELOG.md

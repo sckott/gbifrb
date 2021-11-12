@@ -2,9 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'faraday', '~> 1.1'
-gem 'faraday_middleware', '~> 1.0'
-gem 'thor', '~> 1.0', '>= 1.0.1'
+gem 'faraday', '~> 1.8.0'
+gem 'faraday_middleware', '~> 1.2.0'
+gem 'thor', '~> 1.1'
 gem 'multi_json', '~> 1.15'
 
 gemspec
