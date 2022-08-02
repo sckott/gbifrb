@@ -26,5 +26,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'codecov', '~> 0.6.0'
   s.add_development_dependency 'json', '~> 2.6.1'
   s.add_development_dependency 'vcr', '~> 6.0'
-  s.add_development_dependency 'webmock', '~> 3.14.0'
+  s.add_development_dependency 'webmock', '~> 3.15.0'
 end
