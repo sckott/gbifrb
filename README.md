@@ -2,7 +2,7 @@ gbifrb
 ======
 
 [![gem version](https://img.shields.io/gem/v/gbifrb.svg)](https://rubygems.org/gems/gbifrb)
-[![Ruby](https://github.com/sckott/gbifrb/workflows/Ruby/badge.svg)](https://github.com/sckott/gbifrb/actions?query=workflow%3ARuby)
+[![Ruby](https://github.com/sckott/gbifrb/actions/workflows/ruby.yml/badge.svg)](https://github.com/sckott/gbifrb/actions/workflows/ruby.yml)
 [![codecov.io](http://codecov.io/github/sckott/gbifrb/coverage.svg?branch=main)](http://codecov.io/github/sckott/gbifrb?branch=main)
 
 `gbifrb` is a low level client for the GBIF API
