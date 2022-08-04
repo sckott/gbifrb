@@ -1,10 +1,3 @@
-require 'simplecov'
-SimpleCov.start
-if ENV['CI']=='true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
-
 require "gbifrb"
 require 'fileutils'
 require "test/unit"
@@ -43,15 +36,6 @@ class TestOccurrencesSearch < Test::Unit::TestCase
       assert_equal(6, res.length)
       assert_equal(Hash, res.class)
       assert_true(catnums.uniq.include? "49366")
-    end
-  end
-
-  def test_search_spell_check
-    VCR.use_cassette("test_search_spell_check") do
-      res = @occ.search(q: "kingfisher", limit: 20, spellCheck: true)
-      assert_equal(7, res.length)
-      assert_equal(Hash, res.class)
-      assert_true(res.keys.include? "spellCheckResponse")
     end
   end
 

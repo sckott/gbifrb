@@ -1,11 +1,9 @@
 require "faraday"
-require 'faraday_middleware'
 require "multi_json"
 require "gbifrb/error"
 require "gbifrb/request"
 require "gbifrb/constants"
 require 'gbifrb/helpers/configuration'
-require 'gbifrb/faraday'
 require 'gbifrb/utils'
 
 ##

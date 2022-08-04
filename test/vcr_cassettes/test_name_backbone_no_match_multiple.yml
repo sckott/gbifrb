@@ -8,9 +8,9 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday/v0.13.1 Gbif/v0.0.1
+      - Faraday/v2.4.0 Gbif/v0.1.2
       X-User-Agent:
-      - Faraday/v0.13.1 Gbif/v0.0.1
+      - Faraday/v2.4.0 Gbif/v0.1.2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -20,35 +20,38 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Date:
-      - Fri, 08 Sep 2017 00:19:00 GMT
+      Vary:
+      - Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      X-Frame-Options:
+      - DENY
       Content-Type:
       - application/json
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - HEAD, GET, POST, DELETE, PUT
-      Server:
-      - Jetty(9.3.z-SNAPSHOT)
-      X-Api-Url:
-      - "/v1/species/match?name=Helianthu&strict=false"
+      Date:
+      - Wed, 03 Aug 2022 16:37:46 GMT
       Cache-Control:
       - public, max-age=3601
       X-Varnish:
-      - 340592659 342558083
+      - '135567528'
       Age:
-      - '314'
+      - '0'
       Via:
-      - 1.1 varnish (Varnish/5.1)
+      - 1.1 varnish (Varnish/6.0)
       Accept-Ranges:
       - bytes
-      Content-Length:
-      - '99'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"confidence":100,"note":"Multiple equal matches for Helianthu","matchType":"NONE","synonym":false}'
-    http_version: 
-  recorded_at: Fri, 08 Sep 2017 00:24:14 GMT
-recorded_with: VCR 3.0.3
+      string: '{"confidence":100,"note":"No match because of too little confidence","matchType":"NONE","synonym":false}'
+  recorded_at: Wed, 03 Aug 2022 16:37:46 GMT
+recorded_with: VCR 6.1.0

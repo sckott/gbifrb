@@ -1,10 +1,3 @@
-require 'simplecov'
-SimpleCov.start
-if ENV['CI']=='true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
-
 require "gbifrb"
 require 'fileutils'
 require "test/unit"
@@ -30,7 +23,7 @@ class TestSpeciesNameBackbone < Test::Unit::TestCase
       res2 = @species.name_backbone(name: "Helianthu", strict: false)
       assert_equal(Hash, res2.class)
       assert_equal("NONE", res2["matchType"])
-      assert_equal("Multiple equal matches for Helianthu", res2["note"])
+      assert_equal("No match because of too little confidence", res2["note"])
     end
   end
 

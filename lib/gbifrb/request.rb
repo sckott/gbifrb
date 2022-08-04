@@ -21,21 +21,19 @@ module Gbif
       self.endpt = endpt
       self.args = args
       self.verbose = verbose
-      self.options = options
+      self.options = (options or {}).merge({params_encoder: Faraday::FlatParamsEncoder})
     end
 
     def perform
       if verbose
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
           f.response :logger
-          f.use FaradayMiddleware::RaiseHttpException
-          f.options.params_encoder = Faraday::FlatParamsEncoder
+          f.response :raise_error
           f.adapter  Faraday.default_adapter
         end
       else
         conn = Faraday.new(:url => Gbif.base_url, :request => self.options || []) do |f|
-          f.use FaradayMiddleware::RaiseHttpException
-          f.options.params_encoder = Faraday::FlatParamsEncoder
+          f.response :raise_error
           f.adapter  Faraday.default_adapter
         end
       end
